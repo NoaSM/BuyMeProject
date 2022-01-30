@@ -29,6 +29,10 @@ public class BasePage {
         getWebElement(locator).sendKeys(text);
         return text;
     }
+//    public String getWebURL(String text) throws Exception {
+//        return Singleton.getDriverInstance().getCurrentUrl();
+//
+//    }
 //    public By Assertion(By locator) {
 //        getWebElement(locator).getText();
 //        //Assert.assertEquals(text , locator);

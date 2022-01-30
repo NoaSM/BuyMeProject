@@ -29,18 +29,23 @@ public class MainTest {
         test.log(Status.INFO, "before test method");
         // screenshot
         test.pass("details", MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot(Singleton.getDriverInstance(), "picName")).build());
-        Singleton.getDriverInstance().get("https://buyme.co.il/");
+        Singleton.getDriverInstance().get("https://buyme.co.il/money/398383?price=5");
 
     }
+//    @Test
+//    public void test01_login() throws Exception {
+//        IntroAndRegister introAndRegister = new IntroAndRegister();
+//        introAndRegister.register();
+//    }
+//    @Test
+//    public void test_02_home() throws Exception{
+//        HomeScreen homeScreen = new HomeScreen();
+//        homeScreen.home();
+//    }
     @Test
-    public void test01_login() throws Exception {
-        IntroAndRegister introAndRegister = new IntroAndRegister();
-        introAndRegister.register();
-    }
-    @Test
-    public void test_02_home() throws Exception{
-        HomeScreen homeScreen = new HomeScreen();
-        homeScreen.home();
+    public void test_03_pickbusiness() throws Exception{
+        PickBusiness pickBusiness = new PickBusiness();
+        pickBusiness.pickBusiness();
     }
 
     @AfterClass
