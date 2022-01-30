@@ -15,6 +15,7 @@ public class BasePage {
         getWebElement(locator).click();
 
     }
+
 //    public void findElements(By locator) throws Exception{
 //        List<WebElement> elements = getWebElement(locator).findElements(locator);
 //        for(int i = 0; i < elements.size(); i++){

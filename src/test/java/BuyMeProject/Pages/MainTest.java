@@ -42,10 +42,15 @@ public class MainTest {
 //        HomeScreen homeScreen = new HomeScreen();
 //        homeScreen.home();
 //    }
+//    @Test
+//    public void test_03_pickbusiness() throws Exception{
+//        PickBusiness pickBusiness = new PickBusiness();
+//        pickBusiness.pickBusiness();
+//    }
     @Test
-    public void test_03_pickbusiness() throws Exception{
-        PickBusiness pickBusiness = new PickBusiness();
-        pickBusiness.pickBusiness();
+    public void test_04_senderAndReciever() throws Exception{
+        SenderAndReciever senderAndReciever = new SenderAndReciever();
+        senderAndReciever.sendGift();
     }
 
     @AfterClass
