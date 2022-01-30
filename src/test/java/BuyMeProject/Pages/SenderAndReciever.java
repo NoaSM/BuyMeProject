@@ -37,7 +37,7 @@ public class SenderAndReciever extends BasePage {
         String sendersName = sendKeysToElement(By.xpath("//*[@id=\"ember1673\"]"),("Me"));
         Assert.assertEquals(sendersName,"Me");
     }
-    public void continueToPayment() throws Exception{
+    public void continueToPayment() throws Exception{//c
         clickElement(By.xpath("//*[@id=\"ember1678\"]"));
     }
 

@@ -20,7 +20,7 @@ public class PickBusiness extends BasePage {
         clickElement(By.xpath("//*[@id=\"ember1430\"]/div[2]"));
 
     }
-    public void choosePrice() throws Exception{
+    public void choosePrice() throws Exception{//c
         Thread.sleep(2000);
         sendKeysToElement(By.xpath("//*[@id=\"ember1683\"]"), "5");
         Thread.sleep(2000);

@@ -50,7 +50,7 @@ public class IntroAndRegister extends BasePage {
         String myElement = sendKeysToElement(By.id("ember1717"), "111111");
         Assert.assertEquals(myElement, "111111");
     }
-    private void clickSignUp() throws Exception {
+    private void clickSignUp() throws Exception {//c
         Thread.sleep(2000);
         clickElement(By.xpath("/html/body/div[3]/div/div[1]/div/div/div[3]/div[2]/div[3]/form/button/span"));
     }

@@ -20,7 +20,7 @@ public class BasePage {
 //        List<WebElement> elements = getWebElement(locator).findElements(locator);
 //        for(int i = 0; i < elements.size(); i++){
 //            if(elements.get(i).getAttribute("autocomplete").equals("off")){
-//                elements.get(i).click();
+//                elements.get(i).click();//c
 //            }
 //        }
 //    }

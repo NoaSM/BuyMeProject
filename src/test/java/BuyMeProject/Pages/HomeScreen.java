@@ -27,7 +27,7 @@ public class HomeScreen extends BasePage {
         clickElement(By.xpath("//*[@id=\"ember1154\"]/span"));
 
     }
-    public void findButton() throws Exception{
+    public void findButton() throws Exception{//c
         Thread.sleep(2000);
         clickElement(By.id("ember1180"));
 

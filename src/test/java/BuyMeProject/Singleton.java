@@ -15,7 +15,7 @@ public class Singleton {
     private static WebDriver driver;
     //private static WebDriverWait wait;
 
-    public static WebDriver getDriverInstance()throws Exception {
+    public static WebDriver getDriverInstance()throws Exception {//c
         if (driver == null) {
 //            String type = getData("browserType");
 //            if (type.equals("Chrome")) {
