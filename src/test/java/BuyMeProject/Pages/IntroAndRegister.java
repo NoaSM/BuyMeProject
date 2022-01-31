@@ -1,5 +1,6 @@
 package BuyMeProject.Pages;
 
+import BuyMeProject.Singleton;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
@@ -14,8 +15,7 @@ public class IntroAndRegister extends BasePage {
         insertPassword();
         insertSPassword();
         clickSignUp();
-        //assertValues();
-        //elementText();
+
 
     }
     private void pressRegisterLogin() throws Exception {
@@ -36,6 +36,7 @@ public class IntroAndRegister extends BasePage {
     }
     private void insertEmail() throws Exception {
         //Thread.sleep(3000);
+
         String myElement = sendKeysToElement(By.id("ember1703"), "icookiejar7@gmail.com");
         Assert.assertEquals(myElement, "icookiejar7@gmail.com");
 
@@ -54,8 +55,5 @@ public class IntroAndRegister extends BasePage {
         Thread.sleep(2000);
         clickElement(By.xpath("/html/body/div[3]/div/div[1]/div/div/div[3]/div[2]/div[3]/form/button/span"));
     }
-//    private void elementText(){
-//        String myElement = findElement(By.id("ember1696"), "Noa");
-//        Assert.assertEquals(myElement, "Noa");
-//    }
+
 }

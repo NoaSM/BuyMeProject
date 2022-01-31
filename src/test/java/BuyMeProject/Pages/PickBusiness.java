@@ -17,13 +17,13 @@ public class PickBusiness extends BasePage {
     }
     public void selectBusiness() throws Exception{
         Thread.sleep(3000);
-        clickElement(By.xpath("//*[@id=\"ember1430\"]/div[2]"));
+        clickElement(By.xpath("//*[@id=\"ember1752\"]/div[2]"));//*[@id="ember1752"]/div[2]
 
     }
     public void choosePrice() throws Exception{//c
         Thread.sleep(2000);
-        sendKeysToElement(By.xpath("//*[@id=\"ember1683\"]"), "5");
-        Thread.sleep(2000);
-        clickElement(By.xpath("//*[@id=\"ember1689\"]"));
+        sendKeysToElement(By.xpath("//*[@id=\"ember2002\"]"), "5");
+        //Thread.sleep(2000);
+        clickElement(By.xpath("//*[@id=\"ember2009\"]"));
     }
 }

@@ -1,6 +1,7 @@
 package BuyMeProject.Pages;
 
 import BuyMeProject.Singleton;
+import BuyMeProject.Utils;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
@@ -10,6 +11,8 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -17,40 +20,78 @@ import org.testng.annotations.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
+import java.util.NoSuchElementException;
+
+
 
 public class MainTest {
-    private static ExtentReports extent = new ExtentReports();
-    private static ExtentTest test = extent.createTest("MyFirstTest", "Sample description");
+    public static ExtentReports extent = new ExtentReports();
+    public static ExtentTest test = extent.createTest("BuyMe", "Reports for BuyMe project");
     @BeforeClass
     public static void before_class() throws Exception {
         String cwd = System.getProperty("user.dir");
-        ExtentSparkReporter htmlReporter = new ExtentSparkReporter(cwd+"\\extent.html");
+        ExtentSparkReporter htmlReporter = new ExtentSparkReporter(cwd + "\\extent.html");
         extent.attachReporter(htmlReporter);
-        test.log(Status.INFO, "before test method");
-        // screenshot
-        test.pass("details", MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot(Singleton.getDriverInstance(), "picName")).build());
-        Singleton.getDriverInstance().get("https://buyme.co.il");
 
+        test.info("Before class Will activate the driver and upload the webpage");
+        try {
+            String URL = Utils.getData("URL");
+            Singleton.getDriverInstance().get(URL);
+            //WebDriverWait wait = new WebDriverWait(Singleton.getDriverInstance(), Duration.ofSeconds(10));
+            test.pass("Passed, driver worked");
+        } catch (Exception e) {
+            e.printStackTrace();
+            test.fail("Failed, driver did not work" + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot(Singleton.getDriverInstance(), "picName")).build());
+        }
     }
 //    @Test
 //    public void test01_login() throws Exception {
-//        IntroAndRegister introAndRegister = new IntroAndRegister();
-//        introAndRegister.register();
+//        test.info("This test will create a new user and log in the website");
+//        try{
+//            IntroAndRegister introAndRegister = new IntroAndRegister();
+//            introAndRegister.register();
+//            test.pass("The test has passed");
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            test.fail("The test has failed" + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot(Singleton.getDriverInstance(), "picName")).build());
+//    }
 //    }
     @Test
-    public void test_02_home() throws Exception{
-        HomeScreen homeScreen = new HomeScreen();
-        homeScreen.home();
+    public void test_02_home() throws Exception {
+        test.info("This test will select values in search list and search for a gift according to the values chosen");
+        try {
+            HomeScreen homeScreen = new HomeScreen();
+            homeScreen.home();
+
+            test.pass("The test has passed");
+        } catch (Exception e) {
+            e.printStackTrace();
+            test.fail("The test has failed" + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot(Singleton.getDriverInstance(), "picName")).build());
+        }
     }
     @Test
-    public void test_03_pickbusiness() throws Exception{
-        PickBusiness pickBusiness = new PickBusiness();
-        pickBusiness.pickBusiness();
-    }
+    public void test_03_pickbusiness () throws Exception {
+        test.info("This test will pick a business and insert an amount of money");
+        try {
+            PickBusiness pickBusiness = new PickBusiness();
+            pickBusiness.pickBusiness();
+            test.pass("The test has passed");
+        } catch (Exception e) {
+            test.fail("The test has failed" + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot(Singleton.getDriverInstance(), "picName")).build());
+            }
+        }
+//
     @Test
     public void test_04_senderAndReciever() throws Exception{
-        SenderAndReciever senderAndReciever = new SenderAndReciever();
-        senderAndReciever.sendGift();
+        test.info("This test will insert the information of the sender and the reciever and upload a picture");
+        try{
+            SenderAndReciever senderAndReciever = new SenderAndReciever();
+            senderAndReciever.sendGift();
+            test.pass("The test has passed");
+        } catch (Exception e) {
+            test.fail("The test has failed" + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot(Singleton.getDriverInstance(), "picName")).build());
+        }
     }
 
     @AfterClass
