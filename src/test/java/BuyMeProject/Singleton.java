@@ -13,7 +13,7 @@ import java.time.Duration;
 
 public class Singleton {
     private static WebDriver driver;
-    private static WebDriverWait wait;
+    public static WebDriverWait wait;
 
     public static WebDriver getDriverInstance() throws Exception {//c
         if (driver == null) {
@@ -21,16 +21,11 @@ public class Singleton {
             if (type.equals("Chrome")) {
                 System.setProperty("webdriver.chrome.driver", Constants.CHROMEDRIVER_PATH);
                 driver = new ChromeDriver();
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-                //wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-                //driver.get("https://buyme.co.il/");
-
+                wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             }
-            //wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         }
         return driver;
     }
-
 
 }
 

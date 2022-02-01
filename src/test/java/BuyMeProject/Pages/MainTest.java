@@ -26,8 +26,8 @@ import java.util.NoSuchElementException;
 
 
 public class MainTest {
-    public static ExtentReports extent = new ExtentReports();
-    public static ExtentTest test = extent.createTest("BuyMe", "Reports for BuyMe project");
+    private static ExtentReports extent = new ExtentReports();
+    private static ExtentTest test = extent.createTest("BuyMe", "Reports for BuyMe project");
     @BeforeClass
     public static void before_class() throws Exception {
         String cwd = System.getProperty("user.dir");
@@ -43,8 +43,15 @@ public class MainTest {
         } catch (Exception e) {
             e.printStackTrace();
             test.fail("Failed, driver did not work" + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot(Singleton.getDriverInstance(), "picName")).build());
+            //test.fail("Failed, driver did not work" + e.getMessage());
         }
     }
+//    @Test
+//    public void extras_test() throws Exception{
+//        Extras extras = new Extras();
+//        extras.extras();
+//    }
+//
 //    @Test
 //    public void test01_login() throws Exception {
 //        test.info("This test will create a new user and log in the website");
@@ -54,7 +61,7 @@ public class MainTest {
 //            test.pass("The test has passed");
 //        }catch (Exception e){
 //            e.printStackTrace();
-//            test.fail("The test has failed" + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot(Singleton.getDriverInstance(), "picName")).build());
+//            test.fail("The test has failed " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot(Singleton.getDriverInstance(), "picName")).build());
 //    }
 //    }
     @Test
@@ -67,7 +74,7 @@ public class MainTest {
             test.pass("The test has passed");
         } catch (Exception e) {
             e.printStackTrace();
-            test.fail("The test has failed" + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot(Singleton.getDriverInstance(), "picName")).build());
+            test.fail("The test has failed " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot(Singleton.getDriverInstance(), "picName")).build());
         }
     }
     @Test
@@ -78,10 +85,11 @@ public class MainTest {
             pickBusiness.pickBusiness();
             test.pass("The test has passed");
         } catch (Exception e) {
-            test.fail("The test has failed" + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot(Singleton.getDriverInstance(), "picName")).build());
+            test.fail("The test has failed " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot(Singleton.getDriverInstance(), "picName")).build());
             }
         }
 //
+
     @Test
     public void test_04_senderAndReciever() throws Exception{
         test.info("This test will insert the information of the sender and the reciever and upload a picture");
@@ -90,7 +98,7 @@ public class MainTest {
             senderAndReciever.sendGift();
             test.pass("The test has passed");
         } catch (Exception e) {
-            test.fail("The test has failed" + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot(Singleton.getDriverInstance(), "picName")).build());
+            test.fail("The test has failed " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot(Singleton.getDriverInstance(), "picName")).build());
         }
     }
 
